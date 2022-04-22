@@ -1,9 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { Post } from './models/post';
-import { getPosts, addPost } from './store/actions/post.action';
-import { PostState } from './store/reducers/post.reducers';
-import { filterPosts } from './store/selector/post.selector';
 
 @Component({
   selector: 'app-root',
@@ -13,20 +8,9 @@ import { filterPosts } from './store/selector/post.selector';
 
 export class AppComponent implements OnInit {
 
-  title = 'fakepost';
-
-  posts$ = this.store.pipe(select(filterPosts('qui est esse')));
-
-  posts: Post[] = [];
-  newPost: Post = new Post();
-
-  constructor(private store: Store<PostState>) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getAllPosts();
-  }
 
-  getAllPosts(): void {
-    this.store.dispatch(getPosts());
   }
 }

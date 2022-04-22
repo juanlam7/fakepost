@@ -1,0 +1,21 @@
+.cl-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.cl--list {
+    color: white;
+}
+
+.cl-form-input {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1rem;
+}
