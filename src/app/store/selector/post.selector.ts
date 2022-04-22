@@ -11,3 +11,8 @@ export const filterPosts = (title: string) =>
     createSelector(postSelector, (posts) => {
         return posts.filter((post: Post) => post.title != title);
     });
+
+export const allPosts = () =>
+    createSelector(postSelector, (posts) => {
+        return posts;
+    });

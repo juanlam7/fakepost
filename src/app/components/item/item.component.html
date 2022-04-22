@@ -1,0 +1,8 @@
+<!-- <h4>Title</h4> -->
+<p #titleValue contentEditable="true">{{receivedPost.title}}</p>
+<!-- <h4>Body</h4> -->
+<p #bodyValue contentEditable="true">{{receivedPost.body}}</p>
+
+<p>'Here comments of post'</p>
+<button (click)="updatePosts(receivedPost.id, receivedPost.userId)">Send Changes</button>
+<button (click)="detetePost(receivedPost.id)">Delete</button>

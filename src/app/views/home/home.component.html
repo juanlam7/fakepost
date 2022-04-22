@@ -1,0 +1,23 @@
+<div class="cl-container">
+    <form class="cl-form">
+
+        <h2>Create post</h2>
+
+        <div class="cl-title-input">
+            <h3>Post title</h3>
+            <input class="cl-form-input" name='title' [(ngModel)]="newPost.title" type='text'
+                placeholder="Write the title here">
+        </div>
+
+        <div class="cl-body-input">
+            <h3>Body post</h3>
+            <textarea class="cl-form-input" name="body" [(ngModel)]="newPost.body" rows="5" cols="30"
+                placeholder="Write the body of your post here"></textarea>
+        </div>
+
+        <button (click)="addNewPosts()">Add Post</button>
+
+    </form>
+
+    <app-list class="cl--list"></app-list>
+</div>

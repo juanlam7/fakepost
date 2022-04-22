@@ -7,13 +7,19 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { AppComponent } from './app.component';
 import { postReducer } from './store/reducers/post.reducers';
 import { PostEffects } from './store/effects/post.effects';
 
+import { AppComponent } from './app.component';
+import { ComponentsModule } from './components/components.module';
+import { HomeComponent } from './views/home/home.component';
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +28,7 @@ import { PostEffects } from './store/effects/post.effects';
     HttpClientModule,
     StoreModule.forRoot({ posts: postReducer }),
     EffectsModule.forRoot([PostEffects]),
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
