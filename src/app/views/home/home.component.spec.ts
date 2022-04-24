@@ -1,30 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-import { postReducer } from '../../store/reducers/post.reducers';
-import { PostEffects } from '../../store/effects/post.effects';
-import { commentReducer } from '../../store/reducers/comment.reducers';
-import { CommentEffects } from '../../store/effects/comment.effects';
 import { ComponentsModule } from '../../components/components.module';
 
 import { HomeComponent } from './home.component';
+import { Post } from '../../models/post';
 
 
 describe('HomeComponent', () => {
+
+  const initialState = {};
   
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        StoreModule.forRoot({ posts: postReducer, comments: commentReducer }),
-        EffectsModule.forRoot([PostEffects, CommentEffects]),
-        HttpClientModule,
         ComponentsModule,
         FormsModule
       ],
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],providers: [
+        provideMockStore({
+          initialState,
+        })
+      ]
     })
     .compileComponents();
   });
@@ -40,5 +38,27 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`should have posts as empty array`, () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app = fixture.componentInstance;
+    expect(app.posts).toEqual([]);
+  });
+
+  it(`should have newPost as new Post()`, () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app = fixture.componentInstance;
+    expect(app.newPost).toEqual(new Post());
+  });
+
+  it(`should dispatch when method addNewPosts() is called`, () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app = fixture.componentInstance;
+    let store = TestBed.inject(MockStore);
+    store.dispatch = jest.fn();
+    const dispatchSpy = store.dispatch;
+    app.addNewPosts();
+    expect(dispatchSpy).toBeCalledTimes(1);
   });
 });

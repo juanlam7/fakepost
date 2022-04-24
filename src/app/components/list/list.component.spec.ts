@@ -1,13 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { FormsModule } from '@angular/forms';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
-import { postReducer } from '../../store/reducers/post.reducers';
-import { PostEffects } from '../../store/effects/post.effects';
-import { commentReducer } from '../../store/reducers/comment.reducers';
-import { CommentEffects } from '../../store/effects/comment.effects';
 import { ComponentsModule } from '../../components/components.module';
 
 import { ListComponent } from './list.component';
@@ -15,16 +9,19 @@ import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
   
+  const initialState = {};
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        StoreModule.forRoot({ posts: postReducer, comments: commentReducer }),
-        EffectsModule.forRoot([PostEffects, CommentEffects]),
-        HttpClientModule,
         ComponentsModule,
         FormsModule
       ],
-      declarations: [ ListComponent ]
+      declarations: [ ListComponent ],providers: [
+        provideMockStore({
+          initialState,
+        })
+      ]
     })
     .compileComponents();
   });
