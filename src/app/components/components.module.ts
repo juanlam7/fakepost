@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { ReviewComponent } from './review/review.component';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 
 @NgModule({
   declarations: [
     ListComponent,
     ItemComponent,
-    ReviewComponent
+    ReviewComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,

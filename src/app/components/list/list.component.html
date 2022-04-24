@@ -1,5 +1,10 @@
+<div class="ls-input-content">
+    <h3>Search Post</h3>
+    <input type="text" [(ngModel)]="searchText" class="ls-form-input" placeholder="Enter text to search" autofocus>
+</div>
+<h4 (click)="sortPost()">Sort by title ▼</h4>
 <div class="ls-container">
-    <section class="ls-item" *ngFor="let post of copyAllPost">
+    <section class="ls-item" *ngFor="let post of copyAllPost | appFilter: searchText">
         <app-item [receivedPost]="post" (postVisible)="managePostVisible($event)"></app-item>
     </section>
 </div>
