@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { catchError, concatMap, exhaustMap, map, tap, mergeMap } from 'rxjs/operators';
-import { PostService } from 'src/app/services/post.service';
+import { PostService } from '../../../app/services/post.service';
 import {
   getPosts,
   getPostsSuccess,
