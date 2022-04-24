@@ -19,6 +19,8 @@ export interface CopyPost {
 export class ListComponent implements OnInit {
 
   copyAllPost!: CopyPost[];
+  searchText: string = '';
+  postOrder: boolean = false;
 
   constructor(private store: Store<PostState>) { }
 
@@ -43,5 +45,16 @@ export class ListComponent implements OnInit {
       }
       return post.visible = false;
     })
+  }
+
+  sortPost() {
+    this.postOrder = !this.postOrder;
+    if (this.postOrder) {
+      //title a -z
+      this.copyAllPost.sort((a, b) => a.title.normalize().localeCompare(b.title.normalize()));
+    } else {
+      //title z - a
+      this.copyAllPost.sort((a, b) => b.title.normalize().localeCompare(a.title.normalize()));
+    }
   }
 }

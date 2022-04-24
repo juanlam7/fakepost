@@ -28,4 +28,7 @@
     .cl-container{
         text-align: center;
     }
+    .cl-form {
+        margin-top: 0;
+    }
 }
