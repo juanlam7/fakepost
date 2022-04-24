@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
-
-
+import { ReviewComponent } from './review/review.component';
 
 
 @NgModule({
   declarations: [
     ListComponent,
-    ItemComponent
+    ItemComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,

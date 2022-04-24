@@ -1,5 +1,5 @@
 <div class="ls-container">
-    <section class="ls-item" *ngFor="let post of posts$ | async">
-        <app-item [receivedPost]="post"></app-item>
+    <section class="ls-item" *ngFor="let post of copyAllPost">
+        <app-item [receivedPost]="post" (postVisible)="managePostVisible($event)"></app-item>
     </section>
 </div>
