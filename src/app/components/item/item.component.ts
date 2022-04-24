@@ -13,7 +13,7 @@ import { CopyPost } from '../list/list.component';
 export class ItemComponent implements OnInit {
 
   @Output() postVisible: EventEmitter<number> = new EventEmitter();
-  @Input() receivedPost!: CopyPost;
+  @Input() receivedPost: CopyPost = new Post;
 
   @ViewChild('titleValue', { static: false }) titleValue!: ElementRef<HTMLElement>;
   @ViewChild('bodyValue', { static: false }) bodyValue!: ElementRef<HTMLElement>;
