@@ -21,6 +21,15 @@ export class CommentsService {
     );
   }
 
+  getCommentsById(id: number): Observable<ReadonlyArray<Comments>> {
+    return this.http.get<ReadonlyArray<Comments>>(`${this.url}?postId=${id}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  }
+
   addComments(comments: Comments): Observable<Comments> {
     return this.http.post<Comments>(this.url, comments).pipe(
       catchError((error: HttpErrorResponse) => {

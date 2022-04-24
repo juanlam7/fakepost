@@ -9,6 +9,8 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { postReducer } from './store/reducers/post.reducers';
 import { PostEffects } from './store/effects/post.effects';
+import { commentReducer } from './store/reducers/comment.reducers';
+import { CommentEffects } from './store/effects/comment.effects';
 
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
@@ -26,8 +28,8 @@ import { HomeComponent } from './views/home/home.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ posts: postReducer }),
-    EffectsModule.forRoot([PostEffects]),
+    StoreModule.forRoot({ posts: postReducer, comments: commentReducer }),
+    EffectsModule.forRoot([PostEffects, CommentEffects]),
     ComponentsModule
   ],
   providers: [],

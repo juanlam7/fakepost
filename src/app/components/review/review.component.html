@@ -1,0 +1,5 @@
+<section class="re-container" *ngFor="let comment of comments$ | async">
+    <p>{{comment.name}}</p>
+    <p>{{comment.email}}</p>
+    <p>{{comment.body}}</p>
+</section>

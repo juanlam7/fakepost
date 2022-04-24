@@ -1,0 +1,8 @@
+.re-container {
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    margin-block: 10px;
+    padding: 10px;
+}
