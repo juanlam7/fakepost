@@ -7,6 +7,7 @@
     position: fixed;
     margin-top: 50px;
     width: 500px;
+    box-shadow: 0 8px 16px 0 rgba(245, 245, 245, 0.40);
 }
 
 .ls-item{
@@ -19,6 +20,6 @@
 
 @media (max-width: 900px) {
     .ls-container{
-        width: 300px;
+        width: 90%;
     }
 }

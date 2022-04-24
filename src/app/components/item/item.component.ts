@@ -19,6 +19,7 @@ export class ItemComponent implements OnInit {
   @ViewChild('bodyValue', { static: false }) bodyValue!: ElementRef<HTMLElement>;
 
   updatedPost: Post = new Post();
+  showDeleteAndEditBtn: boolean = true;
 
   constructor(private store: Store<PostState>) { }
 
@@ -39,5 +40,6 @@ export class ItemComponent implements OnInit {
 
   openComments(postId: number) {
     this.postVisible.emit(postId);
+    this.showDeleteAndEditBtn = !this.showDeleteAndEditBtn
   }
 }
