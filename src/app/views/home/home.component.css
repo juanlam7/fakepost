@@ -10,6 +10,10 @@
     color: white;
 }
 
+.cl-form {
+    margin-top: 50px;
+}
+
 .cl-form-input {
     background: transparent;
     border: 1px solid white;
@@ -18,4 +22,10 @@
     padding: 10px;
     margin: 10px;
     font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+    .cl-container{
+        text-align: center;
+    }
 }

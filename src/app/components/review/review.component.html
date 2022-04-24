@@ -1,5 +1,5 @@
 <section class="re-container" *ngFor="let comment of comments$ | async">
-    <p #nameValue contentEditable="true">{{comment.name}}</p>
+    <h1 #nameValue contentEditable="true">{{comment.name}}</h1>
     <p #emailValue contentEditable="true">{{comment.email}}</p>
     <p #bodValue contentEditable="true">{{comment.body}}</p>
 
@@ -10,7 +10,6 @@
 
 <div *ngIf="showAddNewComment" class="re-form">
     <form>
-
         <div class="re-name-input">
             <input class="re-form-input" name='name' [(ngModel)]="newComment.name" type='text'
                 placeholder="Write your name here">
@@ -24,8 +23,7 @@
                 placeholder="Write your comment here"></textarea>
         </div>
 
-        <button (click)="addNewComment()">Add Post</button>
-
+        <button (click)="addNewComment()">Add Comment</button>
     </form>
 </div>
-<button (click)="showAddNewComment = !showAddNewComment">Add comment</button>
+<button (click)="showAddNewComment = !showAddNewComment">{{showAddNewComment ? "Don't add" : "Add comment"}}</button>

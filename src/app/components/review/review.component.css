@@ -9,3 +9,12 @@
 .re-form {
     display: inline-block;
 }
+
+.re-form-input {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+}

@@ -1,11 +1,11 @@
-<p #titleValue contentEditable="true">{{receivedPost.title}}</p>
+<h1 #titleValue contentEditable="true">{{receivedPost.title}}</h1>
 <p #bodyValue contentEditable="true">{{receivedPost.body}}</p>
 
-<div style="text-decoration: underline;" (click)="openComments(receivedPost.id)">See comments</div>
+<p style="text-decoration: underline;" (click)="openComments(receivedPost.id)">See comments</p>
 
 
 <app-review *ngIf="receivedPost.visible" [receivedPostId]="receivedPost.id"></app-review>
 
  
-<button (click)="updatePosts(receivedPost.id, receivedPost.userId)">Edit and Send</button>
-<button (click)="detetePost(receivedPost.id)">Delete</button>
+<button *ngIf="showDeleteAndEditBtn" (click)="updatePosts(receivedPost.id, receivedPost.userId)">Edit and Send</button>
+<button *ngIf="showDeleteAndEditBtn" (click)="detetePost(receivedPost.id)">Delete</button>
