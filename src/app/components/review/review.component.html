@@ -1,5 +1,31 @@
 <section class="re-container" *ngFor="let comment of comments$ | async">
-    <p>{{comment.name}}</p>
-    <p>{{comment.email}}</p>
-    <p>{{comment.body}}</p>
+    <p #nameValue contentEditable="true">{{comment.name}}</p>
+    <p #emailValue contentEditable="true">{{comment.email}}</p>
+    <p #bodValue contentEditable="true">{{comment.body}}</p>
+
+
+    <button (click)="updateComment(comment.id, comment.postId)">Edit and Send</button>
+    <button (click)="deteteComment(comment.id)">Delete</button>
 </section>
+
+<div *ngIf="showAddNewComment" class="re-form">
+    <form>
+
+        <div class="re-name-input">
+            <input class="re-form-input" name='name' [(ngModel)]="newComment.name" type='text'
+                placeholder="Write your name here">
+        </div>
+        <div class="re-email-input">
+            <input class="re-form-input" name='email' [(ngModel)]="newComment.email" type='email'
+                placeholder="Write your email here">
+        </div>
+        <div class="re-body-input">
+            <textarea class="re-form-input" name="body" [(ngModel)]="newComment.body"
+                placeholder="Write your comment here"></textarea>
+        </div>
+
+        <button (click)="addNewComment()">Add Post</button>
+
+    </form>
+</div>
+<button (click)="showAddNewComment = !showAddNewComment">Add comment</button>
