@@ -18,7 +18,7 @@ export interface CopyPost {
 })
 export class ListComponent implements OnInit {
 
-  copyAllPost!: CopyPost[];
+  copyAllPost: CopyPost[] = [];
   searchText: string = '';
   postOrder: boolean = false;
 

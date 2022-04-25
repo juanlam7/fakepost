@@ -15,7 +15,7 @@ export class CommentsService {
   getComments(): Observable<ReadonlyArray<Comments>> {
     return this.http.get<ReadonlyArray<Comments>>(this.url).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
@@ -24,7 +24,7 @@ export class CommentsService {
   getCommentsById(id: number): Observable<ReadonlyArray<Comments>> {
     return this.http.get<ReadonlyArray<Comments>>(`${this.url}?postId=${id}`).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
@@ -33,7 +33,7 @@ export class CommentsService {
   addComments(comments: Comments): Observable<Comments> {
     return this.http.post<Comments>(this.url, comments).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
@@ -43,7 +43,7 @@ export class CommentsService {
     return this.http.delete(`${this.url}/${commentsId}`).pipe(
       delay(2000),
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
@@ -52,7 +52,7 @@ export class CommentsService {
   updateComments(comments: Comments): Observable<Comments> {
     return this.http.put<Comments>(`${this.url}/${comments.id}`, comments).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
