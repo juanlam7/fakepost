@@ -1,7 +1,7 @@
 <h1 #titleValue contentEditable="true">{{receivedPost.title}}</h1>
 <p #bodyValue contentEditable="true">{{receivedPost.body}}</p>
 
-<p style="text-decoration: underline;" (click)="openComments(receivedPost.id)">See comments</p>
+<p class="it-open-comments" (click)="openComments(receivedPost.id)">See comments</p>
 
 
 <app-review *ngIf="receivedPost.visible" [receivedPostId]="receivedPost.id"></app-review>

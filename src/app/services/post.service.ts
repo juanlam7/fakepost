@@ -15,7 +15,7 @@ export class PostService {
   getPosts(): Observable<ReadonlyArray<Post>> {
     return this.http.get<ReadonlyArray<Post>>(this.url).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
@@ -24,7 +24,7 @@ export class PostService {
   addPost(post: Post): Observable<Post> {
     return this.http.post<Post>(this.url, post).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
@@ -34,7 +34,7 @@ export class PostService {
     return this.http.delete(`${this.url}/${postId}`).pipe(
       delay(2000),
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
@@ -43,7 +43,7 @@ export class PostService {
   updatePost(post: Post): Observable<Post> {
     return this.http.put<Post>(`${this.url}/${post.id}`, post).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
+        // console.error(error);
         return throwError(error);
       })
     );
