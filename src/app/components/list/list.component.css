@@ -1,0 +1,45 @@
+.ls-container{
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    overflow: scroll;
+    height: 80%;
+    position: fixed;
+    width: 500px;
+    box-shadow: 0 8px 16px 0 rgba(245, 245, 245, 0.40);
+}
+
+.ls-item{
+    background: transparent;
+    margin-block: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.ls-input-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.ls-form-input {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    font-size: 1rem;
+    margin-left: 20px;
+}
+
+@media (max-width: 900px) {
+    .ls-container{
+        width: 90%;
+    }
+    .ls-input-content {
+        margin-top: 0;
+    }
+}
